@@ -1,5 +1,6 @@
 package jiraProject;
 
+import Base.CommonAPI;
 import Base.ConfigReader;
 
 import java.io.IOException;
@@ -7,25 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
 
-public class JiraApiExample {
+import static Base.CommonAPI.retrieveCredentials;
 
-
-
-    private static String JIRA_BASE_URL;
-    private static String API_TOKEN;
-    private static String USER_EMAIL;
-
-
-    public  void retrieveCredentials(){
-        ConfigReader config = new ConfigReader("configPerso.properties");
-        JIRA_BASE_URL = config.getBaseUrl();
-        API_TOKEN = config.getApiToken();
-        USER_EMAIL = config.getEmail();
-
-    }
-
-
-
+public class JiraApiExample extends CommonAPI {
 
 
 
@@ -34,8 +19,7 @@ public class JiraApiExample {
 
     public static void main(String[] args) {
 
-        JiraApiExample jiraApiExample = new JiraApiExample();
-        jiraApiExample.retrieveCredentials();
+        retrieveCredentials();
         try {
             URL url = new URL(JIRA_BASE_URL + "/rest/api/2/project");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
