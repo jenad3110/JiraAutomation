@@ -1,16 +1,16 @@
-package org.example;
+package jiraProject;
+
+import Base.CommonAPI;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class JiraCreateIssueExample {
 
-    private static final String JIRA_BASE_URL = "https://your-domain.atlassian.net";
-    private static final String API_TOKEN = "your-api-token";
-    private static final String USER_EMAIL = "your-email@example.com";
-
+/*
     public static void main(String[] args) {
         try {
             URL url = new URL(JIRA_BASE_URL + "/rest/api/2/issue");
@@ -24,21 +24,23 @@ public class JiraCreateIssueExample {
 
             connection.setDoOutput(true);
 
-            String jsonInputString = "{"
+            String jsonInputString =
+                    "{"
                     + "\"fields\": {"
                     + "\"project\": {"
-                    + "\"key\": \"PROJECT_KEY\""
+                    + "\"key\": \"" + PROJECT_KEY + "\"" // Project key is passed as an argument
                     + "},"
-                    + "\"summary\": \"New issue from API\","
-                    + "\"description\": \"Creating an issue via the Jira REST API\","
+
+                            + "\"summary\":\""+ISSUE_TITLE+"\""
+
+                    + "\"description\": \""+ISSUE_DESCRIPTION+"\","
                     + "\"issuetype\": {"
                     + "\"name\": \"Task\""
                     + "}"
                     + "}"
                     + "}";
-
             try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes("utf-8");
+                byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
             }
 
@@ -52,4 +54,8 @@ public class JiraCreateIssueExample {
             e.printStackTrace();
         }
     }
+
+
+ */
+
 }

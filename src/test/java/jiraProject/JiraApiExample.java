@@ -1,30 +1,41 @@
-package org.example;
+package jiraProject;
 
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
+import Base.ConfigReader;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-public class JiraIssueCreator {
+public class JiraApiExample {
 
 
-    private static final String JIRA_BASE_URL = "https://mohamedjenad.atlassian.net/";
-    private static final String API_TOKEN = "";
-    private static final String USER_EMAIL = "sron4@hotmail.com";
+
+    private static String JIRA_BASE_URL;
+    private static String API_TOKEN;
+    private static String USER_EMAIL;
+
+
+    public  void retrieveCredentials(){
+        ConfigReader config = new ConfigReader("configPerso.properties");
+        JIRA_BASE_URL = config.getBaseUrl();
+        API_TOKEN = config.getApiToken();
+        USER_EMAIL = config.getEmail();
+
+    }
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
+
+        JiraApiExample jiraApiExample = new JiraApiExample();
+        jiraApiExample.retrieveCredentials();
         try {
             URL url = new URL(JIRA_BASE_URL + "/rest/api/2/project");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
