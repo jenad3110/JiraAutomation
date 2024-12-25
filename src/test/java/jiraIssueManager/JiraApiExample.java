@@ -1,20 +1,13 @@
-package jiraProject;
+package jiraIssueManager;
 
 import Base.CommonAPI;
-import Base.ConfigReader;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
 
-import static Base.CommonAPI.retrieveCredentials;
-
 public class JiraApiExample extends CommonAPI {
-
-
-
-
 
 
     public static void main(String[] args) {

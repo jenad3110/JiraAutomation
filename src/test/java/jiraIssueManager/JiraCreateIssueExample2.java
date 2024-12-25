@@ -1,4 +1,4 @@
-package jiraProject;
+package jiraIssueManager;
 
 import Base.CommonAPI;
 
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JiraCreateIssueExample2 extends CommonAPI{
+
 
     public static void main(String[] args) {
 
