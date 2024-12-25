@@ -1,14 +1,5 @@
 package Base;
 
-import Base.ConfigReader;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-
 public class CommonAPI {
 
 
@@ -19,7 +10,7 @@ public class CommonAPI {
 
 
     public static void retrieveCredentials(){
-        ConfigReader config = new ConfigReader("configPerso.properties");// use "config.properties"
+        ConfigReader config = new ConfigReader("config.properties");// use "config.properties"
         JIRA_BASE_URL = config.getBaseUrl();
         API_TOKEN = config.getApiToken();
         USER_EMAIL = config.getEmail();

@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
   </properties>
 
   <dependencies>
@@ -35,6 +36,48 @@
       <version>20231013</version>
     </dependency>
 
+    <!-- Apache POI - Core library for working with Excel files -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>5.2.3</version>
+    </dependency>
+
+    <!-- Apache POI - For working with XLSX (Excel 2007 and above) files -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.2.3</version>
+    </dependency>
+
+    <!-- Apache POI - For dealing with Excel schemas (needed for XML-based workbooks) -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml-schemas</artifactId>
+      <version>5.1.0</version> <!-- Try using 5.1.0 if 5.2.3 is unavailable -->
+    </dependency>
+
+    <!-- Apache POI - XMLBeans library for handling XML files (used by POI) -->
+    <dependency>
+      <groupId>org.apache.xmlbeans</groupId>
+      <artifactId>xmlbeans</artifactId>
+      <version>5.1.1</version>
+    </dependency>
+
+    <!-- Commons IO - Utility methods for working with IO, needed by POI -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.14.0</version>
+    </dependency>
+
+    <!-- Apache Commons Collections - Additional utility collections used by POI -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>4.4</version>
+    </dependency>
+
 
   </dependencies>
   <build>
@@ -42,10 +85,14 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
-          <source>23</source>
-          <target>23</target>
-            <compilerArgs>--enable-preview</compilerArgs>
+          <source>19</source>
+          <target>19</target>
+          <release>19</release>
+          <compilerArgs>
+            <arg>--enable-preview</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
     </plugins>
